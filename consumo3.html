@@ -21,8 +21,8 @@
 
 $('button').click(function(){
 	$.ajax({
-		type:'POST',
-		url:'http://localhost:8000/api/posts/',
+		type:'GET',
+		url:'http://54.187.230.200:8000/api/posts/',
 		headers:{
 			Authorization: 'Token 1a6af8850385986a7c643f99dff09ab963e57441',
 		},
@@ -51,7 +51,7 @@ $('#n_post').click(function(){
 		url:'http://54.187.230.200:8000/api/posts/',
 		headers:{
 			Authorization: 'Token 1a6af8850385986a7c643f99dff09ab963e57441',
-		}
+		},
 		data:{
 			titulo:$('#titulo').val(),
 			cuerpo:$('#cuerpo').val()
