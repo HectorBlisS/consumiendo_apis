@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Consumiendo mi API de Django</h2>
+	<button>Pedir Data a Django</button>
+	<img style="width:100px;" src="">
+	<p></p>
+
+
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+
+$('button').click(function(){
+	$.ajax({
+		type:'POST',
+		url:'http://localhost:8000/api/posts/',
+		headers:{
+			Authorization: 'Token 1a6af8850385986a7c643f99dff09ab963e57441',
+		},
+		success:exito,
+		error:function(error){
+			console.log(error);
+		},
+		dataType: 'JSON',
+		crossDomain:false,
+	});
+});
+
+function exito(data){
+	console.log(data);
+	for(i=0;i<data.length;i++){
+		$('p').append(data[i].titulo+'<br>');
+	}
+	$('img').attr('src',data[0].imagen);
+
+}
+
+
+</script>
+</body>
+</html>
